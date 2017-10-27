@@ -12,7 +12,8 @@ build:
 	docker build -t $(USER)/hy:$(TAG) .
 
 run:
-	docker run -it --rm -v $(shell pwd)/src:/var/app/src $(USER)/hy:$(TAG) sh -c "hy src/world.hy"
+	docker run -it --rm -v $(shell pwd)/src:/var/app/src $(USER)/hy:$(TAG) $(arg)
+# Usage: `make run arg="hy src/world.hy"
 
 push:
 	docker push $(USER)/hy:$(TAG)
